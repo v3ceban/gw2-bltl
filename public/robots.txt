@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gw2-bltl.vercel.app/sitemap.xml

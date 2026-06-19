@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { appraise, emptyPrice, STACK_SIZE, type Price } from "./lib/coins";
+import {
+  appraise,
+  emptyPrice,
+  parseCostString,
+  STACK_SIZE,
+  type Price,
+} from "./lib/coins";
 import { Corners, Seal } from "./components/ornaments";
 import { CoinRow } from "./components/coin-row";
 import { Receipt } from "./components/receipt";
@@ -22,8 +28,19 @@ function ResetIcon() {
   );
 }
 
+function initialBuy(): Price {
+  const param = new URLSearchParams(window.location.search).get("cost");
+  if (param === null) return emptyPrice();
+
+  const url = new URL(window.location.href);
+  url.searchParams.delete("cost");
+  window.history.replaceState(null, "", url);
+
+  return parseCostString(param);
+}
+
 export default function App() {
-  const [buy, setBuy] = useState<Price>(emptyPrice);
+  const [buy, setBuy] = useState<Price>(initialBuy);
   const [sell, setSell] = useState<Price>(emptyPrice);
   const [stack, setStack] = useState(false);
 

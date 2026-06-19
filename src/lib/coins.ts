@@ -21,6 +21,23 @@ export const STACK_SIZE = 250;
 export const priceToBronze = (p: Price): number =>
   p.gold * BRONZE_PER_GOLD + p.silver * BRONZE_PER_SILVER + p.bronze;
 
+const UNIT_KIND: Record<string, CoinKind> = {
+  g: "gold",
+  s: "silver",
+  b: "bronze",
+};
+
+export function parseCostString(raw: string): Price {
+  let total = 0;
+  for (const m of raw.toLowerCase().matchAll(/(\d+)\s*([gsb])/g)) {
+    total += priceToBronze({
+      ...emptyPrice(),
+      [UNIT_KIND[m[2]]]: Number(m[1]),
+    });
+  }
+  return breakdown(total);
+}
+
 export const fee = (value: number, rate: number): number =>
   value > 0 ? Math.max(1, Math.round(value * rate)) : 0;
 

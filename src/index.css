@@ -621,13 +621,13 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px 18px;
+  gap: 4px 12px;
   min-height: 48px;
 }
 .verdict .hero .coin-amt {
   display: inline-flex;
   align-items: center;
-  gap: 0.2em;
+  gap: 3px;
 }
 .verdict .hero .coin {
   width: 0.54em;
@@ -679,7 +679,6 @@ h1 {
 .verdict .meta .be .val {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
   color: var(--gold-bright);
   font-weight: 600;
   font-size: 15.5px;
@@ -727,6 +726,7 @@ h1 {
 .foot .coin {
   width: 11px;
   height: 11px;
+  margin-bottom: 2px;
 }
 .sign {
   margin-right: 2px;

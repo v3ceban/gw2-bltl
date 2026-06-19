@@ -8,19 +8,19 @@ export function CoinAmount({ value }: { value: number }) {
       {negative && <span className="sign">−</span>}
       {gold > 0 && (
         <span className="coin-amt">
-          <Coin kind="gold" />
           {gold}
+          <Coin kind="gold" />
         </span>
       )}
       {(silver > 0 || gold > 0) && (
         <span className="coin-amt">
-          <Coin kind="silver" />
           {silver}
+          <Coin kind="silver" />
         </span>
       )}
       <span className="coin-amt">
-        <Coin kind="bronze" />
         {bronze}
+        <Coin kind="bronze" />
       </span>
     </>
   );

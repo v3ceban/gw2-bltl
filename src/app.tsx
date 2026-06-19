@@ -112,9 +112,8 @@ export default function App() {
       <Receipt appraisal={appraisal} />
 
       <footer className="foot">
-        Fees are charged to the seller on the list price. Each fee is rounded to
-        whole <Coin kind="bronze" /> bronze (minimum 1), matching the in-game
-        Trading Post.
+        Fees are rounded to whole <Coin kind="bronze" /> bronze (minimum 1),
+        matching the in-game Trading Post.
       </footer>
     </main>
   );
